@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.source=https://github.com/twonines/Bible-Beasts-P
 LABEL org.opencontainers.image.description="Bible Beast Project Submission"
 
 # Add the time to the build
-RUN date -u +"%Y-%m-%dT%H:%M:%SZ" > /build-time.txt
+RUN date -u +"%Y-%m-%dT%H:%M:%SZ" > ./build-time.txt
 
 # Set the working directory to /app
 WORKDIR /app
@@ -51,5 +51,3 @@ CMD ["npm", "start"]
 # CMD ['npm', 'start']
 
 # to run: docker run -dp 127.0.0.1:3000:3000 bible_beasts 
-
-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
