@@ -1,9 +1,11 @@
-LABEL org.opencontainers.image.source=https://github.com/twonines/Bible-Beasts-Project/
-LABEL org.opencontainers.image.description="Bible Beast Project Submission"
 
 # Start from the official Node.js LTS base image
 # use slimmer version of node
 FROM node:18-slim
+
+# Add labels
+LABEL org.opencontainers.image.source=https://github.com/twonines/Bible-Beasts-Project/
+LABEL org.opencontainers.image.description="Bible Beast Project Submission"
 
 # Add the time to the build
 RUN date -u +"%Y-%m-%dT%H:%M:%SZ" > /build-time.txt
