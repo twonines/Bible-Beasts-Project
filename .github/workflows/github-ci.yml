@@ -9,7 +9,7 @@ on:
 jobs:
   deploy-docker-image:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
-    runs-on: ubuntu-latest 
+    runs-on: [ubuntu-latest, macos-latest]
     steps:
       # Modified from: https://github.com/marketplace/actions/build-and-push-docker-images
       - 
@@ -36,3 +36,15 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+# name: deploy-cloudformation
+# on: 
+#   push:
+#     branches: ['deploy']
+# job: 
+#   deploy-cloudformation:
+#     steps:
+#       - 
+#         name: Deploy Cloudformation Stack
+#         run: |
+#           aws cloudformation deploy --template-file ./template.yaml --stack-name my-new-stack --parameter-overrides InstanceType=t2.micro --tags serviceName=bp-beasts region=us-east-2 environment=prod
